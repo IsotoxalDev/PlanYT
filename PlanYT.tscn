@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Icons/Account.svg" type="Texture" id=1]
+[ext_resource path="res://Assets/Themes/Theme.tres" type="Theme" id=2]
+[ext_resource path="res://Assets/Icons/Button.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Icons/Add.svg" type="Texture" id=4]
+[ext_resource path="res://PlanYT.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Icons/Settings.svg" type="Texture" id=6]
+
+[node name="PlanYT" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Body" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+custom_constants/separation = 20
+
+[node name="Toolbar" type="HBoxContainer" parent="Body"]
+margin_right = 1240.0
+margin_bottom = 46.0
+
+[node name="ChannelSelect" type="OptionButton" parent="Body/Toolbar"]
+margin_right = 184.0
+margin_bottom = 46.0
+text = "Channel Name"
+icon = ExtResource( 1 )
+
+[node name="Centrify" type="CenterContainer" parent="Body/Toolbar"]
+margin_left = 188.0
+margin_right = 220.0
+margin_bottom = 46.0
+
+[node name="Settings" type="TextureButton" parent="Body/Toolbar/Centrify"]
+margin_top = 7.0
+margin_right = 32.0
+margin_bottom = 39.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 6 )
+
+[node name="VideoScroll" type="ScrollContainer" parent="Body"]
+margin_top = 66.0
+margin_right = 1240.0
+margin_bottom = 680.0
+size_flags_vertical = 3
+
+[node name="Centerify" type="CenterContainer" parent="Body/VideoScroll"]
+margin_right = 1240.0
+margin_bottom = 614.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VideoContainer" type="GridContainer" parent="Body/VideoScroll/Centerify"]
+margin_left = 460.0
+margin_top = 217.0
+margin_right = 780.0
+margin_bottom = 397.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="AddNew" type="Button" parent="Body/VideoScroll/Centerify/VideoContainer"]
+margin_right = 320.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 320, 180 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Body/VideoScroll/Centerify/VideoContainer/AddNew"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Body/VideoScroll/Centerify/VideoContainer/AddNew"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Body/VideoScroll/Centerify/VideoContainer/AddNew/HBoxContainer"]
+margin_left = 58.0
+margin_right = 94.0
+margin_bottom = 180.0
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Body/VideoScroll/Centerify/VideoContainer/AddNew/HBoxContainer"]
+margin_left = 98.0
+margin_top = 76.0
+margin_right = 261.0
+margin_bottom = 104.0
+text = "Add New Video"
+
+[connection signal="pressed" from="Body/VideoScroll/Centerify/VideoContainer/AddNew" to="." method="_on_AddNew_pressed"]
