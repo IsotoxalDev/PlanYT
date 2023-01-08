@@ -140,8 +140,8 @@ script = ExtResource( 10 )
 margin_right = 636.0
 margin_bottom = 417.0
 access = 2
-current_dir = "/var/home/abhi/Documents/Code/Godot/PlanYT"
-current_path = "/var/home/abhi/Documents/Code/Godot/PlanYT/"
+current_dir = "/var/home/abhi/Dev/Godot/PlanYT"
+current_path = "/var/home/abhi/Dev/Godot/PlanYT/"
 
 [connection signal="pressed" from="Body/Toolbar/Centrify/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Body/VideoScroll/Centerify/VideoContainer/Control/AddNew" to="." method="_on_AddNew_pressed"]

@@ -16,6 +16,4 @@ func _on_TextureButton_pressed():
 func _on_ChannelSettings_about_to_show():
 		icon.editable = !Global.channels.empty()
 		channel_name.editable = !Global.channels.empty()
-#		if Global.channels.size() > 0:
-#			icon.text = 
-#			channel_name = Global.channels
+		channel_name = Global.channels[0]
